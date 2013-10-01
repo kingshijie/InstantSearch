@@ -1,0 +1,105 @@
+#effect{
+	width:300px;
+	height:450px;
+	margin: 10px auto;
+    padding: 5px;
+    border: 1px solid #777;
+    background-color: #fff;/*#e6e6e6;*/
+    text-align: center;
+    font-size: 14px;
+    overflow: scroll;
+}
+
+#wiki{
+	margin-top: 5px;
+	text-align: left;
+	display: block;
+	clear: both;
+	float: left;
+}
+
+#flickr{
+	margin-top: 5px;
+	padding: 5px;
+	border-top:1px #000 dashed;
+	display: block;
+	clear: both;
+	float: left;
+}
+
+#flickr img{
+	float: left;
+	display: inline;
+	margin-left: 10px;
+	width: 80px;
+	height: 80px;
+}
+
+#youtube{
+	border-top:1px #000 dashed;
+	margin-top: 5px;
+	display: block;
+	clear: both;
+	float: left;
+}
+
+#effect h1{
+	text-align: center;
+	font-size:16px;
+}
+
+h2{
+	font-size:14px;
+}
+
+h3{
+	font-size:14px;
+}
+
+
+ul
+{
+list-style-type: none;
+padding: 0px;
+margin: 0px;
+}
+
+ul li
+{
+padding-left: 14px; 
+}
+
+a{color:#06C;text-decoration:none;}
+a:hover{color:#F90;text-decoration:underline;}
+ 
+.normal a{color:#666;}
+.normal a:hover{color:#000;}
+ 
+.list a:visied{color:#969;}
+
+.thumbs{
+	width:130px;
+	margin-left: 10px;
+	display: inline;
+	float: left;
+}
+
+.thumbs img{
+	width:120px;
+	clear:both;
+	float: left;
+}
+.thumbs a{
+	width:110px;
+	font-size: 12px;
+	clear: both;
+	float: left;
+}
+
+.clear{
+margin:0;
+padding:0;
+border:0;
+clear:both;
+}
+

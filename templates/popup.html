@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+        min-width: 180px;
+        overflow-x: hidden;
+        text-align: center;
+      }
+
+      ul{
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+      }
+      ul li{
+        border-bottom: 1px dashed;
+      }
+      .name{
+        font-size: 14px;
+        font-weight: bold;
+        color: #25e1ef;
+        margin-left: 3px;
+      }
+      .hintContent{
+        font-size: 14px;
+        display: none;
+        text-align: left;
+      }
+      .hintTitle{
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .warning{
+        color: red;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+     <script type="text/javascript" src="../libs/jquery-1.10.2.min.js"></script>
+     <script type="text/javascript" src="js/popup.js"></script>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <p class="hintTitle">Help</p>
+        <ul id="HelpHint" class="hintContent">
+          <li>
+            <p>Just select words or sentence, and there will be a popup showing all kinds of information. Have fun!</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p class="hintTitle">About</p>
+        <ul id="AboutHint" class="hintContent">
+          <li>
+            <p>Author: <span class="name">Shijie,</span> <span class="name">Jinbin</span>,<span class="name">Han</span></p>
+            <p>Contact: aaronisfine@gmail.com</p>
+            <p>Version: 0.5</p>
+            <p class="warning">This extension may have problems within specific websites, please send me feedbacks to make it better!</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </body>
+</html>
+
