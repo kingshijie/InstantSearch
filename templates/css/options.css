@@ -1,0 +1,20 @@
+body{
+	width:800px;
+	margin: 0px auto;
+	border:1px dashed;
+}
+
+#main{
+	width: 100%;
+	padding: 10px;
+}
+
+.option{
+	text-align: left;
+}
+
+#status{
+	color:#0000ff;
+	text-align: center;
+	font-size: 16px;
+}

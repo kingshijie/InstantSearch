@@ -16,4 +16,5 @@ Functions next:
 2.Provide more search engines;
 3.Provide a way to choose preferred search engines;
 4.Provide more selections to trigger the search;
-5.International access;
+5.Option of max selected charaters num;
+6.International access;

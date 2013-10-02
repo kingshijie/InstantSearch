@@ -13,6 +13,7 @@
   "permissions": [
     "<all_urls>"
   ],
+  "options_page": "templates/options.html",
   "content_scripts":[
     {
       "matches": ["<all_urls>"],

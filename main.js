@@ -16,6 +16,26 @@ function getSelectedText() {
     } 
 }
 
+function surroundSelection() {
+    var span = document.createElement("span");
+    span.id = "InstantSearchSelectedArea";
+    
+    if (window.getSelection) {
+        var sel = window.getSelection();
+        if (sel.rangeCount) {
+            var range = sel.getRangeAt(0).cloneRange();
+            range.surroundContents(span);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+    }
+}
+
+function removeSelection() {
+    var id = "#InstantSearchSelectedArea";
+    $(id).contents().unwrap();
+}
+
 function top_stories(o){      
   var items = o.query.results.video;
   var output = '<h1>Youtube</h1>';
@@ -76,6 +96,9 @@ $('body').mouseup(function(e){
     //hide the popup created before
     var popup = $('#effect');
     if(popup){
+        if($('#InstantSearchSelectedArea')){
+            removeSelection();
+        }
         popup.hide('clip', {}, 100, null);
     }
     //show popup
@@ -83,6 +106,8 @@ $('body').mouseup(function(e){
     //only popup with selection length less than 30 characters
     if((text = getSelectedText()) && text.length < 30 && textTemp !== text){
         console.log('text=' + text);
+        //surround with span tag
+        surroundSelection();
         //set position
         popup.css("position","absolute");
         var left = e.clientX + window.pageXOffset;

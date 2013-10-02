@@ -103,3 +103,8 @@ border:0;
 clear:both;
 }
 
+#InstantSearchSelectedArea{
+	font-weight: bold;
+	background-color: #ceeece;
+}
+
