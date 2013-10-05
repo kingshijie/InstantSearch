@@ -3,7 +3,7 @@
 
   "name": "InstantSearch",
   "description": "Just select words or sentence, and there will be a popup showing all kinds of information. Have fun searching!",
-  "version": "0.5.2",
+  "version": "0.6",
 
   "browser_action": {
     "default_icon": "images/icon.png",
@@ -14,11 +14,14 @@
     "<all_urls>"
   ],
   "options_page": "templates/options.html",
+  "web_accessible_resources":[
+      "libs/jquery-1.10.2.min.map"
+    ],
   "content_scripts":[
     {
       "matches": ["<all_urls>"],
-      "css": ["css/styles.css", "libs/jquery-ui-1.10.3.custom.min.css"],
-      "js": ["libs/jquery-1.10.2.min.js", "libs/jquery-ui-1.10.3.min.js", "main.js"]
+      "css": ["css/styles.css", "libs/bootstrap/css/bootstrap.min.css"],
+      "js": ["libs/jquery-1.10.2.min.js", "libs/bootstrap/js/bootstrap.min.js", "main.js"]
     }
   ]
 }

@@ -5,13 +5,17 @@ Already known bugs:
 1.Not working on Google related pages, not working on jQuery UI page.
 2.Sometimes the trigger of the selection not work properly.
 
+Next steps:
+1.Use bootstrap as display framework;
+2.Finish option page;
+
 Things need to be approved:
 1.Extend Wiki in the popup;
 2.Play video directly;
 3.Show pictures directly;
 4.Display the popup within the window;
 
-Functions next:
+Future Functions:
 1.Option page;
 2.Provide more search engines;
 3.Provide a way to choose preferred search engines;

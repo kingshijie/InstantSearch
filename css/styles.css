@@ -1,110 +1,138 @@
-#effect{
-	width:300px;
-	height:450px;
-	margin: 10px auto;
-    padding: 5px;
-    border: 1px solid #777;
-    background-color: #fff;/*#e6e6e6;*/
-    text-align: center;
-    font-size: 14px;
-    overflow: scroll;
+#popover{
+	width:250px;
+	height: 240px;
+	overflow: scroll;
 }
 
-#wiki{
-	margin-top: 5px;
-	text-align: left;
-	display: block;
-	clear: both;
-	float: left;
-}
-
-#flickr{
-	margin-top: 5px;
+#popover .pine{
+	font-size: 12px;
+	line-height: 18px;
+	font-family: "Georgia","Tahoma","Sans-Serif";
 	padding: 5px;
-	border-top:1px #000 dashed;
-	display: block;
-	clear: both;
-	float: left;
 }
 
-#flickr img{
+#popover .branch{
+	float: left;
+	clear: both;
+	margin-top: 10px;
+}
+
+#popover .stalk{
+	text-decoration:underline;
+}
+
+#popover .leaf2{
+	width:70px;
 	float: left;
 	display: inline;
-	margin-left: 10px;
-	width: 80px;
-	height: 80px;
+	margin-right: 8px;
 }
 
-#youtube{
-	border-top:1px #000 dashed;
-	margin-top: 5px;
-	display: block;
-	clear: both;
+#popover .leaf2 img{
+	width:70px;
+}
+
+#popover .leaf3{
+	width:110px;
 	float: left;
+	display: inline;
+	margin-right: 8px;
 }
 
-#effect h1{
+#popover .leaf3 img{
+	width:110px;
+}
+
+#popover .leaf6{
+	width:238px;
+	float: left;
+	clear: both;
+}
+
+#popover h1{
 	text-align: center;
-	font-size:16px;
+	font-size:14px !important;
+	font-weight: bold;
 }
 
-h2{
-	font-size:14px;
+#popover h2{
+	text-align: center;
+	font-size:13px !important;
+	font-weight: bold;
 }
 
-h3{
-	font-size:14px;
+#popover h3{
+	text-align: center;
+	font-size:12px !important;
+	font-weight: bold;
 }
 
-
-ul
+#popover ul
 {
 list-style-type: none;
 padding: 0px;
 margin: 0px;
 }
 
-ul li
+#popover ul li
 {
 padding-left: 14px; 
 }
 
-a{color:#06C;text-decoration:none;}
-a:hover{color:#F90;text-decoration:underline;}
+#popover a{color:#06C;text-decoration:none;}
+#popover a:hover{color:#F90;text-decoration:underline;}
  
-.normal a{color:#666;}
-.normal a:hover{color:#000;}
+#popover .normal a{color:#666;}
+#popover .normal a:hover{color:#000;}
  
-.list a:visied{color:#969;}
+#popover .list a:visied{color:#969;}
 
-.thumbs{
+.popover_thumbs{
 	width:130px;
 	margin-left: 10px;
 	display: inline;
 	float: left;
 }
 
-.thumbs img{
+.popover_thumbs img{
 	width:120px;
 	clear:both;
 	float: left;
 }
-.thumbs a{
+
+.popover_thumbs a{
 	width:110px;
 	font-size: 12px;
 	clear: both;
 	float: left;
 }
 
-.clear{
-margin:0;
-padding:0;
-border:0;
-clear:both;
-}
 
 #InstantSearchSelectedArea{
 	font-weight: bold;
 	background-color: #ceeece;
 }
 
+#wiki{
+	
+}
+
+#flickr {
+
+}
+
+#youtube {
+
+}
+
+#youtube .ytbThumb{
+	width: 100%;
+}
+
+#youtube .ytbTitle{
+	width: 100%;
+	height: 20px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

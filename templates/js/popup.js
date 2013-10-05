@@ -7,4 +7,10 @@ $(function() {
     else
       $(hintId).css('display', 'none');
   });
+  $('.hintTitle').hover(function(e){
+  	$(this).css('cursor', 'pointer');
+  });
+  $('.hintTitle').onleave(function(e){
+  	$(this).css('cursor', 'default');
+  });
 });
