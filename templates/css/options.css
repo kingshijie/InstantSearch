@@ -2,25 +2,94 @@ body{
 	width:800px;
 	margin: 0px auto;
 	/*border:1px dashed;*/
+	background: #ddd;
 }
 
 #main{
 	width: 100%;
-	padding: 10px;
+	padding-bottom: 20px;
+	/*border:1px dashed;*/
+	background: #ffffff;
+	float: left;
+	clear: both;
 }
 
 .option{
+	width:100%;
+	float: left;
+	clear:both;
+	text-align: center;
+}
+
+.column{
+	float: left;
+	display: inline-block;
 	text-align: left;
 }
 
+.span3{
+	width:40%;
+	margin-left: 10%;
+	display: inline;
+}
+
 #status{
-	color:#0000ff;
+	color:#5cb85c;
 	text-align: center;
 	font-size: 16px;
+	margin-top: 10px;
+	background: #f9f2f4;
+	border: 1px solid #000;
+	border-radius: 25px;
 }
 
 #feedback{
 	margin-top: 30px;
 	text-align: center;
 	font-size: 20px;
+}
+
+#sortable{
+	border: 2px solid;
+	padding: 5px;
+	width: 170px;
+	text-align: center;
+}
+
+.sortItem{
+	width:150px;
+	border:2px solid;
+	border-radius: 25px;
+	list-style-type: none;
+	margin-top: 3px;
+	cursor: pointer;
+}
+
+.hint{
+	font-size: 12px;
+	color:#5bc0de;
+}
+
+
+button{
+	width:100px;
+	height:30px;
+	background: #474949;
+	color:#fff;
+}
+
+hr{
+	width: 100%;
+	float: left;
+	clear: both;
+	margin-top: 30px;
+}
+
+#buttons{
+	float: left;
+	clear: both;
+	width:100%;
+	text-align: center;
+	margin-top: 50px;
+	display: block;
 }

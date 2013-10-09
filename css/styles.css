@@ -1,7 +1,8 @@
 #popover{
 	width:250px;
 	height: 240px;
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #popover .pine{
@@ -33,14 +34,14 @@
 }
 
 #popover .leaf3{
-	width:110px;
+	width:108px;
 	float: left;
 	display: inline;
 	margin-right: 8px;
 }
 
 #popover .leaf3 img{
-	width:110px;
+	width:108px;
 }
 
 #popover .leaf6{
@@ -49,21 +50,21 @@
 	clear: both;
 }
 
-#popover h1{
+#popover .h1{
 	text-align: center;
-	font-size:14px !important;
+	font-size:14px;
 	font-weight: bold;
 }
 
-#popover h2{
+#popover .h2{
 	text-align: center;
-	font-size:13px !important;
+	font-size:13px;
 	font-weight: bold;
 }
 
-#popover h3{
+#popover .h3{
 	text-align: center;
-	font-size:12px !important;
+	font-size:12px;
 	font-weight: bold;
 }
 

@@ -2,18 +2,20 @@ This is a Chrome Extension. Just select words or sentence, and there will be a p
 I finished all the hack within 24 hours, so don't expect too much with the decent of the code.
 
 Already known bugs:
-1.Not working on Google related pages, not working on jQuery UI page.
-2.Sometimes the trigger of the selection not work properly.
+<s>1.Not working on Google related pages, not working on jQuery UI page.</s>
+<s>2.Sometimes the trigger of the selection not work properly.</s>
+3.Show Warnings in https pages "displayed insecure content";
 
 Next steps:
-1.Use bootstrap as display framework;
+<s>1.Use bootstrap as display framework;</s>
 2.Finish option page;
 
-Things need to be approved:
+Things need to be improved:
 1.Extend Wiki in the popup;
 2.Play video directly;
 3.Show pictures directly;
-4.Display the popup within the window;
+<s>4.Display the popup within the window;</s>
+5.Add config code, so the option page can be configable.
 
 Future Functions:
 1.Option page;

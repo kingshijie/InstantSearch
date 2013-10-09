@@ -3,28 +3,39 @@
 	<title>InstantSearch Options</title>
 	<link href="css/options.css" rel="stylesheet"/>
 	<script type="text/javascript" src="../libs/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../libs/jquery-ui-1.10.3.custom.min.js"></script>
 	<script src="js/options.js"></script>
 </head>
 
 <body>
 	<div id="feedback"><a href="mailto:aaronisfine@gmail.com?subject=InstantSearch">Feedback</a></div>
-	<!-- <div id="main">
+	
+	<div id="main">
 
 		<div id="status"></div>
 		<div class="option">
-			<h3>Search Resources</h3>
-			<input type="checkbox" value="youtube" name="resources"/>Youtube<br>
-			<input type="checkbox" value="flickr" name="resources"/>Flickr<br>
-			<input type="checkbox" value="wiki" name="resources"/>Wikipedia<br>
+			<h1>Search Options</h1>
+			<div class="column span3">
+				<h3>Select your favors</h3>
+				<input type="checkbox" value="Youtube" name="resources"/>Youtube<br>
+				<input type="checkbox" value="Flickr" name="resources"/>Flickr<br>
+				<input type="checkbox" value="Wikipedia" name="resources"/>Wikipedia<br>
+			</div>
+			<div class="column span3">
+				<h3>Display Order <span class="hint">(How to? Drag and Drop!)</span></h3>
+				<ul id="sortable"></ul>
+			</div>
 		</div>
+		<hr>
 		<!-- <div class="option">
 			<h3>Trigger</h3>
 			<input type="radio" value="select" name="trigger">Select text<br>
 			<input type="radio" value="Hover" name="trigger">Hover on the text<br>
-		</div> 
-		<button id="save">Save</button>
-	</div> -->
-<br>
+		</div> -->
+		<div id="buttons">
+			<button id="save">Save</button>
+		</div>
+	</div> 
 </body>
 
 

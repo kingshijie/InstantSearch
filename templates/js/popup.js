@@ -13,4 +13,6 @@ $(function() {
   $('.hintTitle').onleave(function(e){
   	$(this).css('cursor', 'default');
   });
+  
 });
+

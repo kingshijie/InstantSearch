@@ -24,22 +24,28 @@ function surroundSelection() {
     if (window.getSelection) {
         var sel = window.getSelection();
         if (sel.rangeCount) {
-            var range = sel.getRangeAt(0).cloneRange();
-            range.surroundContents(span);
-            sel.removeAllRanges();
-            sel.addRange(range);
+            var parentEl = sel.getRangeAt(0).endContainer;
+            if(parentEl.nodeType == 3){
+                var range = sel.getRangeAt(0).cloneRange();
+                range.surroundContents(span);
+                sel.removeAllRanges();
+                sel.addRange(range);
+            }
         }
     }
 }
 
 function removeSelection() {
-    var id = "#" + popoverId;
-    $(id).contents().unwrap();
+    var dom = null;
+    if(dom = $("#" + popoverId)){
+        dom.popover('hide');
+        dom.contents().unwrap();
+    }
 }
 
 function top_stories(o){      
   var items = o.query.results.video;
-  var output = '<h1 class="stalk">Youtube</h1>';
+  var output = '<div class="h1 stalk">Youtube</div>';
   var no_items=items.length;
   for(var i=0;i<no_items;i++){
     var title = items[i].title;
@@ -50,7 +56,7 @@ function top_stories(o){
   }
   // console.log($('#youtube'));
   // console.log(output);
-  $('#youtube').html(output);
+  $('#Youtube').html(output);
 }
 
 //get json array
@@ -67,7 +73,7 @@ function GetJArray(selIndex,arr){
 
 function listPhotos(output){
   var items = output.query.results.photo;
-  var list = '<h1 class="stalk">Flickr</h1>';
+  var list = '<div class="h1 stalk">Flickr</div>';
   // var list = '<div class="popover_h1">Flickr</div>';
   var no_items = items.length;
   for(var i = 0; i < no_items; i++){
@@ -82,14 +88,14 @@ function listPhotos(output){
     list += "<div class=\"leaf2\"><a href='#' onmousedown='window.open(\"" + big_link +"\")'  target='_blank'><img alt='thumbnails' src='" + photo_link + "'></a></div>";
   }
   console.log('flickr=' + list);
-  $('#flickr').html(list);
+  $('#Flickr').html(list);
 
 }
 
 
 
 
-function getWiki(keyword){
+function getWikipedia(keyword){
     // // wiki
     var wikiURL = 'http://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&titles=' + keyword;
     $.getJSON(wikiURL, function (data) {
@@ -101,11 +107,11 @@ function getWiki(keyword){
         console.log(wikiError);
         if(!wikiError){
             var result = '<div class="popover_p1">' + GetJArray(0,data.query.pages).substring(0,300) + '</div>';
-            result = '<h1 class="stalk">Wikipedia</h1>' + result;
+            result = '<div class="h1 stalk">Wikipedia</div>' + result;
             result += "...<a href='#' onmousedown='window.open(\"http://en.wikipedia.org/wiki/" + keyword + "\")' target='_blank'>More&gt;&gt;</a>";
             result = '<div class="leaf6">' + result + '</div>';
             console.log(result);
-            $('#wiki').html(result);
+            $('#Wikipedia').html(result);
         }
     });
 }
@@ -137,73 +143,92 @@ function getYoutube(keyword){
       });
 }
 
- // Initialize the scope plugin
-// $.scoped();
-//insert pop up div into content
-var btCssURL = chrome.extension.getURL("libs/bootstrap/css/bootstrap.min.css");
-var popover = '<div id="popover"><div class="pine"><div class="branch" id="wiki"></div><div class="branch" id="flickr"></div><div class="branch" id="youtube"></div></div></div>';
+
+chrome.runtime.sendMessage({key: "resources"}, function(response) {
+
+    var searchResourceArr = null;
+    var popover = "";
+
+    //get search options
+    var res = response.value;
+    if(res){
+        searchResourceArr = res.split(',');
+    }
 
 
-function getPopoverContent(){
-    return popover;
-}
+    //insert pop up div into content
+    var btCssURL = chrome.extension.getURL("libs/bootstrap/css/bootstrap.min.css");
+    if(searchResourceArr == null){
+        //! It's a hack, need to be improved
+        popover = '<div id="popover"><div id="Wikipedia"></div><div id="Flickr"></div><div id="Youtube"></div></div>';
+    }
+    for(var i in searchResourceArr){
+        popover += '<div id="' + searchResourceArr[i] + '"></div>';
+    }
+    popover = '<div id="popover">' + popover + '</div>';
+    // alert(popover);
 
+    //trigger search when select content
+    $('body').mouseup(function(e){
 
-//trigger search when select content
-$('body').mouseup(function(e){
-
-    //hide the popup created before
-    if($('#' + popoverId)){
-        $('#' + popoverId).popover('hide');
+        //hide the popup created before        
         removeSelection();
-    }
-    //show popup
-    var keyword = "";
-    //only popup with selection length less than 30 characters
-    if((keyword = getSelectedText()) && keyword.length < 30){
-        console.log('keyword=' + keyword);
-        //surround with span tag
-        surroundSelection();
-        $('#' + popoverId).popover({
-            trigger :'manual',
-            html: true,
-            placement: function(context, source){
-                var toLeft = $(source).offset().left - $(window).scrollLeft();
-                var toTop = $(source).offset().top - $(window).scrollTop();
-                // alert(toLeft + "," + toTop + "," + ($(window).height()-toTop));
-                var horizonRange = 300;
-                var verticalRange = 290;
-                if (toLeft < horizonRange) {
-                    return "right";
-                }
+        //show popup
+        var keyword = "";
+        //only popup with selection length less than 30 characters
+        if((keyword = $.trim(getSelectedText())) && keyword.length < 30){
+            //surround with span tag
+            surroundSelection();
+            $('#' + popoverId).popover({
+                trigger :'manual',
+                html: true,
+                placement: function(context, source){
+                    var toLeft = $(source).offset().left - $(window).scrollLeft();
+                    var toTop = $(source).offset().top - $(window).scrollTop();
+                    // alert(toLeft + "," + toTop + "," + ($(window).height()-toTop));
+                    var horizonRange = 300;
+                    var verticalRange = 290;
+                    if (toLeft < horizonRange) {
+                        return "right";
+                    }
 
-                if ($(window).width() - toLeft < horizonRange) {
-                    return "left";
-                }
+                    if ($(window).width() - toLeft < horizonRange) {
+                        return "left";
+                    }
 
 
-                if (toTop < verticalRange){
+                    if (toTop < verticalRange){
+                        return "bottom";
+                    }
+
+                    if ($(window).height() - toTop < verticalRange){
+                        return "top";
+                    }
+
                     return "bottom";
+                },
+                content: popover,
+                container: 'body'
+            }).popover('show');
+
+            //replace all space charecters to %20
+            keyword = keyword.replace(/\s+/g,'%20');
+            console.log('keyword=' + keyword);
+
+            if(searchResourceArr == null){
+                //! It's a hack, need to be improved
+                getWikipedia(keyword);
+                getFlickr(keyword);
+                getYoutube(keyword);
+            }else{
+                for(var i in searchResourceArr){
+                    var fName = "get" + searchResourceArr[i];
+                    console.log(fName);
+                    window[fName](keyword);
                 }
+            }
 
-                if ($(window).height() - toTop < verticalRange){
-                    return "top";
-                }
-
-                return "bottom";
-            },
-            content: function(){ return getPopoverContent()},
-            container: 'body'
-        }).popover('show');
-
-        // //replace all space charecters to %20
-        keyword = keyword.replace(/\s+/g,'%20');
-
-        getWiki(keyword);
-
-        getFlickr(keyword);
-
-        getYoutube(keyword);
-    }
+        }
+    });
 });
 
